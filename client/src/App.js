@@ -23,24 +23,31 @@ function App() {
     switch (action.type) {
       case 'checking': {
         return {
-          ...(state.checkingAccountBalance + action.payload),
+          ...state,
+          checkingAccountBalance: state.checkingAccountBalance + action.payload,
         };
       }
       case 'saving': {
+        console.log(state);
         return {
-          ...(state.savingAccountBalance + action.payload),
+          ...state,
+          savingAccountBalance: state.savingAccountBalance + action.payload,
         };
       }
       case 'transferCheckingToSaving': {
         return {
-          ...(state.checkingAccountBalance - action.payload),
-          ...(state.savingAccountBalance + action.payload),
+          ...state,
+          savingAccountBalance: state.savingAccountBalance + action.payload,
+          ...state,
+          checkingAccountBalance: state.checkingAccountBalance - action.payload,
         };
       }
       case 'transferSavingToChecking': {
         return {
-          ...(state.savingAccountBalance - action.payload),
-          ...(state.checkingAccountBalance + action.payload),
+          ...state,
+          savingAccountBalance: state.savingAccountBalance - action.payload,
+          ...state,
+          checkingAccountBalance: state.checkingAccountBalance + action.payload,
         };
       }
       default:
@@ -50,16 +57,15 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [lastActivity, setLastActivity] = useState(lastActivityMock);
 
-  let amount = 0;
-  const savingsAccountHandler = () => {
-    // setSavingAccountBalance((prevState) => prevState + 3);
+  const savingsAccountHandler = (amount = 0) => {
+    dispatch({ type: 'saving', payload: amount });
     const [date, timeStamp] = new Date(Date.now()).toLocaleString().split(',');
     setLastActivity((prevState) => {
       return [
         {
           date,
           timeStamp,
-          action: 'savings account deposited $3',
+          action: `Deposit into savings account`,
           amount,
         },
         ...prevState,

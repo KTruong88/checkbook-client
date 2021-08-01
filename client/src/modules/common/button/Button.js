@@ -1,6 +1,6 @@
 const Button = ({ clickHandler, title }) => {
   return (
-    <button onClick={clickHandler} type='button'>
+    <button onClick={() => clickHandler(50)} type='button'>
       {title}
     </button>
   );
