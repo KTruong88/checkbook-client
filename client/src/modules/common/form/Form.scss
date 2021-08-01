@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+    // 700px optimal reading length
+    width: 43.75rem;
+    }
+}

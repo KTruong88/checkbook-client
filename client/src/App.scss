@@ -1,0 +1,35 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    // 700px optimal reading length
+    // width: 43.75rem;
+  }
+
+  @media screen and (min-width: 1054px) {
+    
+  }
+}
+
+.app-container__inner {
+  margin: 2rem 0;
+  @media screen and (min-width: 768px) {
+    // 700px optimal reading length
+    width: 43.75rem;
+  }
+}
+
+.app-container__actions {
+  margin: 3rem 0;
+}
+
+.app-container__balance {
+  display: block;
+}
+
+.app-container__acc--balance {
+  margin-bottom: 2.5rem;
+}
