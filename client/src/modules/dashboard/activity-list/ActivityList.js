@@ -1,4 +1,4 @@
-import "./ActivityList.scss";
+import './ActivityList.scss';
 
 const ActivityList = ({ accountActivity }) => {
   return (
@@ -17,7 +17,7 @@ const ActivityList = ({ accountActivity }) => {
                 <span className='activity-list__item-time'>{el.timeStamp}</span>
                 <span className='activity-list__item-action'>{el.action}</span>
                 <span className='activity-list__item-amount'>
-                  {`$ ${el.amount >= 0 ? "+" : "-"}${el.amount}`}
+                  {`$ ${el.amount >= 0 ? '+' : '-'}${el.amount}`}
                 </span>
               </li>
             );

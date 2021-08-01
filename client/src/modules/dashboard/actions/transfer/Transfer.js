@@ -1,4 +1,4 @@
-import Button from "../../../common/button/Button";
+import Button from '../../../common/button/Button';
 
 const Transfer = () => {
   return <Button title='Transfer' />;

@@ -1,5 +1,9 @@
-const Button = ({ title }) => {
-  return <button type="button">{title}</button>;
+const Button = ({ clickHandler, title }) => {
+  return (
+    <button onClick={clickHandler} type='button'>
+      {title}
+    </button>
+  );
 };
 
 export default Button;

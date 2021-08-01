@@ -2,7 +2,7 @@ import './Form.scss';
 
 const Form = () => {
   return (
-    <form className="form">
+    <form className='form'>
       {/* <label>Withdrawal</label>
       <input />
       <label>Deposit</label>

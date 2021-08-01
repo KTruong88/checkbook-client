@@ -1,7 +1,7 @@
-import Button from "../../../common/button/Button";
+import Button from '../../../common/button/Button';
 
-const Deposit = () => {
-  return <Button title='Deposit' />;
+const Deposit = ({ clickHandler }) => {
+  return <Button clickHandler={clickHandler} title='Deposit' />;
 };
 
 export default Deposit;
