@@ -1,10 +1,15 @@
-import { useState, useReducer } from 'react';
+import { useReducer } from 'react';
 
+// custom hooks
+import useLastActivity from './modules/hooks/useLastActivity';
+
+// components
 import ActivityList from './modules/dashboard/activity-list/ActivityList';
 import Withdraw from './modules/dashboard/actions/withdraw/Withdraw';
 import Deposit from './modules/dashboard/actions/deposit/Deposit';
 import Transfer from './modules/dashboard/actions/transfer/Transfer';
-import lastActivityMock from './modules/config/last-activity-mock';
+
+// mocks and configs
 import savingsAccountMock from './modules/config/savings-account-mock';
 import checkingsAccountMock from './modules/config/checkings-account-mock';
 
@@ -28,7 +33,6 @@ function App() {
         };
       }
       case 'saving': {
-        console.log(state);
         return {
           ...state,
           savingAccountBalance: state.savingAccountBalance + action.payload,
@@ -55,10 +59,11 @@ function App() {
     }
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [lastActivity, setLastActivity] = useState(lastActivityMock);
+  const [lastActivity, setLastActivity] = useLastActivity();
 
   const savingsAccountHandler = (amount = 0) => {
     dispatch({ type: 'saving', payload: amount });
+
     const [date, timeStamp] = new Date(Date.now()).toLocaleString().split(',');
     setLastActivity((prevState) => {
       return [
