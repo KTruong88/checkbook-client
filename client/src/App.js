@@ -65,12 +65,16 @@ function App() {
     dispatch({ type: 'saving', payload: amount });
 
     const [date, timeStamp] = new Date(Date.now()).toLocaleString().split(',');
+    const action =
+      amount >= 0
+        ? 'Deposit into savings account'
+        : 'Withdrew from savings account';
     setLastActivity((prevState) => {
       return [
         {
           date,
           timeStamp,
-          action: `Deposit into savings account`,
+          action,
           amount,
         },
         ...prevState,
