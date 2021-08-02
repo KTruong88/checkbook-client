@@ -1,0 +1,24 @@
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: rgba(22, 22, 22, 0.5);
+}
+
+.modal-content {
+  padding: 1rem;
+  background: #fff;
+  height: 25rem;
+  width: 50rem;
+}
+
+.modal-content__title {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content__body {
+}

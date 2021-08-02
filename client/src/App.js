@@ -82,8 +82,7 @@ function App() {
     });
   };
 
-  const { checkingAccountBalance, savingAccountBalance, accountActivity } =
-    state;
+  const { checkingAccountBalance, savingAccountBalance } = state;
   const totalAvailabletBalance = checkingAccountBalance + savingAccountBalance;
 
   return (
@@ -94,7 +93,12 @@ function App() {
         <h3>{`Savings Account: ${savingAccountBalance}`}</h3>
         <div className='app-container__actions'>
           <Withdraw />
-          <Deposit clickHandler={savingsAccountHandler} />
+          <Deposit
+            dispatch={dispatch}
+            checking={checkingAccountBalance}
+            saving={savingAccountBalance}
+            clickHandler={savingsAccountHandler}
+          />
           <Transfer />
         </div>
         <ActivityList accountActivity={lastActivity} />
