@@ -3,6 +3,7 @@ import './ActivityList.scss';
 const ActivityList = ({ accountActivity }) => {
   return (
     <>
+      <h3>Posted Transactions</h3>
       <div className='activity-list__header'>
         <span className='activity-list__header-date'>Date:</span>
         <span className='activity-list__header-time'>Time:</span>
