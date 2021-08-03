@@ -16,9 +16,9 @@
 }
 
 .modal-content__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.25rem;
   margin-bottom: 2rem;
-}
-
-.modal-content__body {
 }

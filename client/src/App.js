@@ -61,14 +61,14 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [lastActivity, setLastActivity] = useLastActivity();
 
-  const savingsAccountHandler = (amount = 0) => {
-    dispatch({ type: 'saving', payload: amount });
+  const accountDepositHandler = (type, amount = 0) => {
+    dispatch({ type, payload: amount });
 
     const [date, timeStamp] = new Date(Date.now()).toLocaleString().split(',');
     const action =
       amount >= 0
-        ? 'Deposit into savings account'
-        : 'Withdrew from savings account';
+        ? `Deposit into ${type} account`
+        : `Withdrew from ${type} account`;
     setLastActivity((prevState) => {
       return [
         {
@@ -94,10 +94,9 @@ function App() {
         <div className='app-container__actions'>
           <Withdraw />
           <Deposit
-            dispatch={dispatch}
             checking={checkingAccountBalance}
             saving={savingAccountBalance}
-            clickHandler={savingsAccountHandler}
+            accountDepositHandler={accountDepositHandler}
           />
           <Transfer />
         </div>
