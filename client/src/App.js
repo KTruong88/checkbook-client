@@ -6,7 +6,6 @@ import useLastActivity from './modules/hooks/useLastActivity';
 // components
 import ActivityList from './modules/dashboard/activity-list/ActivityList';
 import AccountActions from './modules/dashboard/actions/account-actions/AccountActions';
-import Transfer from './modules/dashboard/actions/transfer/Transfer';
 
 // mocks and configs
 import savingsAccountMock from './modules/config/savings-account-mock';
@@ -91,17 +90,11 @@ function App() {
         <h3>{`Checkings Account: ${checkingAccountBalance}`}</h3>
         <h3>{`Savings Account: ${savingAccountBalance}`}</h3>
         <div className='app-container__actions'>
-          {/* <Withdraw
-            checking={checkingAccountBalance}
-            saving={savingAccountBalance}
-            accountActionHandler={accountActionHandler}
-          /> */}
           <AccountActions
             checking={checkingAccountBalance}
             saving={savingAccountBalance}
             accountActionHandler={accountActionHandler}
           />
-          <Transfer />
         </div>
         <ActivityList accountActivity={lastActivity} />
       </div>
