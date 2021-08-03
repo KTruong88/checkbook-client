@@ -5,8 +5,7 @@ import useLastActivity from './modules/hooks/useLastActivity';
 
 // components
 import ActivityList from './modules/dashboard/activity-list/ActivityList';
-import Withdraw from './modules/dashboard/actions/withdraw/Withdraw';
-import Deposit from './modules/dashboard/actions/deposit/Deposit';
+import AccountActions from './modules/dashboard/actions/account-actions/AccountActions';
 import Transfer from './modules/dashboard/actions/transfer/Transfer';
 
 // mocks and configs
@@ -61,7 +60,7 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [lastActivity, setLastActivity] = useLastActivity();
 
-  const accountDepositHandler = (type, amount = 0) => {
+  const accountActionHandler = (type, amount = 0) => {
     dispatch({ type, payload: amount });
 
     const [date, timeStamp] = new Date(Date.now()).toLocaleString().split(',');
@@ -92,11 +91,15 @@ function App() {
         <h3>{`Checkings Account: ${checkingAccountBalance}`}</h3>
         <h3>{`Savings Account: ${savingAccountBalance}`}</h3>
         <div className='app-container__actions'>
-          <Withdraw />
-          <Deposit
+          {/* <Withdraw
             checking={checkingAccountBalance}
             saving={savingAccountBalance}
-            accountDepositHandler={accountDepositHandler}
+            accountActionHandler={accountActionHandler}
+          /> */}
+          <AccountActions
+            checking={checkingAccountBalance}
+            saving={savingAccountBalance}
+            accountActionHandler={accountActionHandler}
           />
           <Transfer />
         </div>
