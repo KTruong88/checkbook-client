@@ -15,7 +15,7 @@ const AccountActions = ({ checking, saving, accountActionHandler }) => {
   const transactionAmountHandler = (e) => setTransactionAmount(e.target.value);
   const modalHandler = () => setModalStatus(!modalStatus);
 
-  // Handle withdraw and deposit actions
+  // Handle withdraw and deposit actions.
   const transactionHandler = (e) => {
     e.preventDefault();
     e.stopPropagation();
